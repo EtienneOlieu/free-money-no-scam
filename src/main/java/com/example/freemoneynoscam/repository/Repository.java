@@ -14,7 +14,7 @@ public class Repository {
     public void connectDB(){
         try {
             String url = "jdbc:mysql://localhost:3306/test_db";
-            con = DriverManager.getConnection(url, "root", "Abearm27");
+            con = DriverManager.getConnection(url, "root", "******"); //pw er fjernet
             System.out.println("Connection established");
         }catch (Exception e){
             e.printStackTrace();
