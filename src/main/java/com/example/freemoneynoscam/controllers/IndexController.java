@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class IndexController {
     private ValidateEmailService ve = new ValidateEmailService();
@@ -28,6 +30,8 @@ public class IndexController {
     return "success";
     }
 
+
+
     @PostMapping("/test")
     public String test(WebRequest dataFromForm){
 
@@ -38,4 +42,9 @@ public class IndexController {
         return "redirect:/failure";
     }
 
+    @PostMapping("/session")
+    public String sessionExample (WebRequest request, HttpSession session){
+        session.setAttribute("username",request.getParameter("username"));
+        return "redirect:/test";
+    }
 }

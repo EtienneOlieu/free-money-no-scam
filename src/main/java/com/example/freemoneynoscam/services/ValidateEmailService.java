@@ -1,20 +1,16 @@
 package com.example.freemoneynoscam.services;
 
-import com.example.freemoneynoscam.repository.Repository;
+import com.example.freemoneynoscam.repository.EmailRepository;
 
 public class ValidateEmailService {
 
-    private Repository re = new Repository();
+    EmailRepository er = new EmailRepository();
 
     public boolean isEmailValid(String email){
         if(email.contains("@") && email.contains(".")){
-            re.insertEmailToDB(email);
+            er.insertEmailToDB(email);
             return true;
         }
         return false;
-    }
-
-    public void getConnection(){
-        re.connectDB();
     }
 }
